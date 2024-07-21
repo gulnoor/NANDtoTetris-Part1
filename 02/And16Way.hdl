@@ -1,0 +1,13 @@
+CHIP And16Way {
+    IN x[16];
+    OUT out;
+
+    PARTS:
+    And4x1Inputs(a=x[0],b=x[1],c=x[2],d=x[3],out=abcd);
+    And4x1Inputs(a=x[4],b=x[5],c=x[6],d=x[7],out=efgh);
+    And4x1Inputs(a=x[8],b=x[9],c=x[10],d=x[11],out=ijkl);
+    And4x1Inputs(a=x[12],b=x[13],c=x[14],d=x[15],out=mnop);
+    And4x1Inputs(a=abcd,b=efgh,c=ijkl,d=mnop,out=out);
+
+ 
+}

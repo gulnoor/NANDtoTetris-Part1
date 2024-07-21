@@ -1,0 +1,9 @@
+CHIP And3x1Inputs {
+    IN a ,b, c;
+    OUT out;
+
+    PARTS:
+    And(a=a, b=b, out=andb);
+    And(a=andb, b=c, out=out);
+
+}

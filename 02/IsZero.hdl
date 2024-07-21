@@ -1,0 +1,11 @@
+CHIP IsZero {
+    IN in[16];
+    OUT out;
+
+    PARTS:
+    Not16(in=in, out=inot);
+    And16Way(x=inot,out=out);
+    
+
+
+}

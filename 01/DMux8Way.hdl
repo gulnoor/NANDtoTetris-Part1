@@ -1,0 +1,34 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/DMux8Way.hdl
+/**
+ * 8-way demultiplexor:
+ * [a, b, c, d, e, f, g, h] = [in, 0, 0, 0, 0, 0, 0, 0] if sel == 000
+ *                            [0, in, 0, 0, 0, 0, 0, 0] if sel == 001
+ *                            ...
+ *                            [0, 0, 0, 0, 0, 0, 0, in] if sel == 111
+ */
+CHIP DMux8Way {
+    IN in, sel[3];
+    OUT a, b, c, d, e, f, g, h;
+
+    PARTS:
+    //// Replace this comment with your code.
+    Not(in=sel[0], out=s0not);
+    Not(in=sel[1], out=s1not);
+    Not(in=sel[2], out=s2not);
+    And4x1Inputs(a=in, b=s0not, c=s1not, d=s2not, out=a);
+    And4x1Inputs(a=in, b=s2not, c=s1not, d=sel[0], out=b);
+    And4x1Inputs(a=in, b=s0not, c=sel[1], d=s2not, out=c);
+    And4x1Inputs(a=in, b=s2not, c=sel[1], d=sel[0], out=d);
+    And4x1Inputs(a=in, b=sel[2], c=s1not, d=s0not, out=e);
+    And4x1Inputs(a=in, b=sel[2], c=s1not, d=sel[0], out=f);
+    And4x1Inputs(a=in, b=sel[2], c=sel[1], d=s0not, out=g);
+    And4x1Inputs(a=in, b=sel[2], c=sel[1], d=sel[0], out=h);
+
+
+
+
+    
+}

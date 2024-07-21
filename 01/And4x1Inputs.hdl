@@ -1,0 +1,10 @@
+CHIP And4x1Inputs {
+    IN a ,b, c, d;
+    OUT out;
+
+    PARTS:
+    And(a=a, b=b, out=andb);
+    And(a=andb, b=c, out=aandbandc);
+    And(a=aandbandc, b=d, out=out);
+
+}
